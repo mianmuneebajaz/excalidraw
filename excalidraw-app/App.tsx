@@ -957,24 +957,11 @@ const ExcalidrawWrapper = () => {
             return null;
           }
 
-          return (
+          return collabError.message ? (
             <div className="excalidraw-ui-top-right">
-              {excalidrawAPI?.getEditorInterface().formFactor === "desktop" && (
-                <ExcalidrawPlusPromoBanner
-                  isSignedIn={isExcalidrawPlusSignedUser}
-                />
-              )}
-
-              {collabError.message && <CollabError collabError={collabError} />}
-              <LiveCollaborationTrigger
-                isCollaborating={isCollaborating}
-                onSelect={() =>
-                  setShareDialogState({ isOpen: true, type: "share" })
-                }
-                editorInterface={editorInterface}
-              />
+              <CollabError collabError={collabError} />
             </div>
-          );
+          ) : null;
         }}
         onLinkOpen={(element, event) => {
           if (element.link && isElementLink(element.link)) {

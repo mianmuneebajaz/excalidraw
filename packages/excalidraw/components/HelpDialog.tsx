@@ -134,11 +134,10 @@ export const HelpDialog = ({ onClose }: { onClose?: () => void }) => {
     <>
       <Dialog
         onCloseRequest={handleClose}
-        title={t("helpDialog.title")}
+        title={t("helpDialog.shortcuts")}
         className={"HelpDialog"}
       >
-        <Header />
-        <Section title={t("helpDialog.shortcuts")}>
+        <Section title="">
           <ShortcutIsland
             className="HelpDialog__island--tools"
             caption={t("helpDialog.tools")}
